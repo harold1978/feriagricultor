@@ -23,8 +23,12 @@ public class FeriaServicio {
         return repo.findAll();
     }
 
-    public void crearCategoria(Categoria cate){
-        repo.save(cate);
+    public Categoria getCategoria(String id){
+        return repo.findById(id).orElse(null);
+    }
+
+    public Categoria crearCategoria(Categoria cate){
+       return repo.save(cate);
     }
 
     public void actualizarCategoria(String id,Categoria cate){

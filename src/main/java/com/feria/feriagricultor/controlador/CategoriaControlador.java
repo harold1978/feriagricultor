@@ -11,13 +11,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+
+
 
 /**
  *
  * @author Administrator
  */
 @RestController
-@RequestMapping("/api/categoria")
+@RequestMapping("/api/categorias")
 public class CategoriaControlador{
  @Autowired
  private FeriaServicio servicio;
@@ -25,6 +30,16 @@ public class CategoriaControlador{
  @GetMapping
  public List<Categoria> getCategorias(){
      return servicio.getCategorias();
-     
  }
+
+ @GetMapping("/{id}")
+ public Categoria getCategoria(@RequestParam String id) {
+     return servicio.getCategoria(id);
+ }
+ 
+ @PostMapping
+ public Categoria crearCategoria(@RequestBody Categoria categoria) {
+    return servicio.crearCategoria(categoria);
+ }
+ 
 }
