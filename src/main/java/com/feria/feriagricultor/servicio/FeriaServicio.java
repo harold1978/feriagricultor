@@ -31,12 +31,12 @@ public class FeriaServicio {
        return repo.save(cate);
     }
 
-    public void actualizarCategoria(String id,Categoria cate){
+    public Categoria actualizarCategoria(String id,Categoria cate){
         Categoria c = repo.findById(id).orElse(null);
         if(c!=null){
-            repo.save(c);
+           return repo.save(cate);
         }
-
+                return null;
     }
     public void eliminarCategoria(String id){
         Categoria ce = repo.findById(id).orElse(null);
