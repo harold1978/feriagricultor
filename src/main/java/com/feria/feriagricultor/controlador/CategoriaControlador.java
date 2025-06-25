@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
-@RequestMapping("/api/categorias")
+@RequestMapping("/api/auth/categorias")
 public class CategoriaControlador {
     @Autowired
     private FeriaServicio servicio;
